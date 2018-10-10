@@ -145,10 +145,11 @@ io.sockets.on('connection', function(socket){
 
 	Player.onConnect(socket);
 	broadcastMessage(playerName + " has connected");
+	console.log("Socket connected");
 	
 	socket.on('disconnect', function(){
 		Player.onDisconnect(socket);
-		broadcastMessage(playerName + " has dis");
+		broadcastMessage(playerName + " has disconnected");
 		delete SOCKET_LIST[socket.id];
 	});
 	socket.on('sendMsgToServer', function(data){
