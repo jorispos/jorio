@@ -87,6 +87,7 @@ Player.onConnect = function(socket){
 Player.onDisconnect = function(socket){
 	delete Player.list[socket.id];
 }
+
 Player.update = function(){
 	var pack = [];
 	for(var i in Player.list){
@@ -138,6 +139,7 @@ Bullet.update = function(){
 }
 
 var io = require('socket.io')(serv,{});
+
 io.sockets.on('connection', function(socket){
 	socket.id = Math.random();
 	SOCKET_LIST[socket.id] = socket;
